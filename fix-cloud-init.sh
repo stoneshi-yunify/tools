@@ -3,9 +3,8 @@ set -e
 
 echo "This script will recreate /etc/netplan/50-cloud-init.yaml"
 echo "It only applies to a KSV vm in the 172.31.53.255 subnet on the enp1s0 interface. Use it with caution."
-echo "Do you want to continue?(y/n)"
-read -r ans
-[[ $ans != "y" ]] && echo "Required answer 'y' to continue" && exit 1
+echo "You have 10 seconds before it starts"
+sleep 10
 
 cd /etc/netplan
 mv 50-cloud-init.yaml "50-cloud-init.yaml.$(date +"%Y-%m-%d_%H-%M-%S").bak"
